@@ -121,7 +121,7 @@ function App() {
         if (weatherBackgrounds[weatherCondition]) {
           setBackgroundImage(weatherBackgrounds[weatherCondition]);
         } else {
-          setBackgroundImage('url(/images/default.jpg)')
+          setBackgroundImage('url(/images/leftbox.jpeg)')
         }
 
         const handleSetIcons = Icons[weatherCondition];
