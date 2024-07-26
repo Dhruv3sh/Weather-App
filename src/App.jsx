@@ -54,6 +54,7 @@ function App() {
     Haze: 'url(/images/haze.jpeg)',
     Dust: 'url(/images/dust.jpg)',
     Fog: 'url(/images/fog.jpg)',
+    Drizzle: 'url(/images/drizzle.webp)',
   };
 
   const Icons = {
