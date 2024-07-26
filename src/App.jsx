@@ -99,6 +99,12 @@ function App() {
       color: 'white',
       size: 70,
       animate: true
+    },
+    Drizzle: {
+      icon: 'Sleet',
+      color: 'white',
+      size: 70,
+      animate: true
     }
   };
 
