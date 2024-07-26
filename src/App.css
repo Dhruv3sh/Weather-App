@@ -1,0 +1,305 @@
+
+/*search bar*/
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.wrapper input {
+  padding-right: 40px;
+}
+
+.wrapper button {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.wrapper button:hover {
+  transform: scale(1.2);
+  transition-delay: 3ms;
+  
+}
+
+/*app css*/
+
+.box{
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  background-image: url("/images/default.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-box{
+  position: relative;
+  height: 85%; 
+  width: 40%;
+  padding-left: 1rem;
+  color: white;
+  background-image: url("/images/leftbox.jpeg");
+  background-repeat: no-repeat;
+  position: relative;
+  background-position-x: -30px;
+
+}
+
+.location{
+  text-align: right;
+  padding-right: 10px;
+}
+
+.bottom-content{
+  position: absolute;
+  bottom: 0%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.bottom-content h3{
+  font-size: 2.2rem;
+}
+
+.DateTemp{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+}
+
+.DateTemp h2{
+  font-size: 20px;
+  padding-bottom: 14px;
+}
+
+.DateTemp h1{
+  position: absolute;
+  left: 15rem;
+  bottom: 0px;
+  font-size: 4.5rem;
+
+}
+
+.DateTemp img {
+  position: absolute;
+  height: 4rem;
+  width: 5rem;
+  left: 14rem;
+  bottom: 0.4rem;
+  
+}
+
+
+.spinner{
+  padding-left: 0px;
+}
+
+
+
+
+/*right box*/
+
+.right-box{
+  position: relative ;
+  height: 85%;
+  width: 21%;
+  color: white;
+  text-align: center;
+  background-color: black;
+  border: 1px solid black;
+  opacity: 0.7;
+} 
+
+.wrapper input {
+  background: transparent;
+  border: 1px solid gray;
+  border-radius: 5px;
+
+}
+
+.weathericon {
+  height:7rem;
+  width:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.weathericon h1{
+  font-size:larger;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+hr.hrr{
+  width: 90%;
+  translate: 5%;
+  border: 1.5px solid white;
+  border-radius: 5px;
+}
+
+.list{
+  padding-top: 2rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.list ul{
+  height: 1px;
+  list-style-type: none;
+}
+
+.list li{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+@media screen and (max-width: 1440px){
+  .wrapper input {
+    width: 11rem;
+    background: transparent;
+  }
+}
+
+
+@media screen and (max-width: 935px)  {
+
+  .wrapper input {
+    width: 11rem;
+    background: transparent;
+  }
+
+  .wrapper button{
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    
+  }
+
+  .box{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+  
+
+  .left-box{
+    height: 80%;
+    width: 45%;
+    padding-left: 10px;
+    }
+
+    .bottom-content h3{
+      font-size: 20px;
+    }
+
+    .DateTemp{
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .DateTemp h2{
+      font-size: 30px;
+      padding-bottom: 7.5px;
+    }
+
+    .DateTemp h1{
+      font-size: 38px;
+      position: absolute;
+      left: 0;
+    }
+
+    .DateTemp img {
+      position: absolute;
+      left: 0;
+      
+    }
+  
+  .right-box{
+    width: 30%;
+    height: 80%;
+  }
+
+
+}
+
+@media only screen and (max-width: 500px)  {
+
+  .box{
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .left-box{
+  height: 80%;
+  width: 50%;
+  }
+
+  .right-box{
+    height: 80%;
+    width: 34%;
+  }
+
+  .bottom-content h3{
+    padding-left: 5px;
+  }
+
+  .DateTemp{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    height: 8rem;
+    width: 100%;
+    font-size: small;
+  }
+  
+  .DateTemp h1{
+    padding-left: 5px;
+    font-size: xx-large;
+  
+  }
+
+  .wrapper input {
+    width: 7rem;
+  }
+
+  .list{
+    font-size: small;
+    padding-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list ul{
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+
+}
