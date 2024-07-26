@@ -101,7 +101,7 @@ function App() {
       animate: true
     },
     Drizzle: {
-      icon: 'Sleet',
+      icon: 'SLEET',
       color: 'white',
       size: 70,
       animate: true
