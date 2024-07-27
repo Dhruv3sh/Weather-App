@@ -120,7 +120,6 @@ function App() {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=${apiKey}`;
     axios.get(apiUrl)
       .then((res) => {
-        console.log(res);
         setArea(res.data);
 
         const weatherCondition = res.data.weather[0].main;
