@@ -148,6 +148,11 @@ function App() {
       })
       .catch((error) => {
         console.error('There was an error!', error);
+        if (error) {
+          alert("Enter correct area!!");
+        } else {
+          console.log(error);
+        }
       });
 
   };
