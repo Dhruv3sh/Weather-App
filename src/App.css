@@ -150,11 +150,20 @@ hr.hrr{
 }
 
 .list ul{
-  height: 1px;
   list-style-type: none;
 }
 
-.list li{
+
+.Litemp{
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-bottom: 1px solid grey ;
+}
+
+.Litemp1{
+  display: flex;
+  justify-content: space-between;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
