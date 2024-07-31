@@ -1,31 +1,3 @@
-
-/*search bar*/
-
-.wrapper {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-}
-
-.wrapper input {
-  padding-right: 40px;
-}
-
-.wrapper button {
-  position: absolute;
-  top: 0px;
-  right: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.wrapper button:hover {
-  transform: scale(1.2);
-  transition-delay: 3ms;
-  
-}
-
 /*app css*/
 
 .box{
@@ -94,17 +66,10 @@
   position: absolute;
   height: 4rem;
   width: 5rem;
-  left: 14rem;
+  left: 15rem;
   bottom: 0.4rem;
   
 }
-
-
-.spinner{
-  padding-left: 0px;
-}
-
-
 
 
 /*right box*/
@@ -120,11 +85,37 @@
   opacity: 0.7;
 } 
 
-.wrapper input {
-  background: transparent;
-  border: 1px solid gray;
-  border-radius: 5px;
 
+.wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.wrapper input {
+  background-color: transparent;
+  padding-right: 40px;
+  border: none;
+  border-bottom: 1px solid silver;
+}
+
+.wrapper input:focus {
+  outline: none;
+}
+
+.wrapper button {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.wrapper button:hover {
+  transform: scale(1.2);
+  transition-delay: 100ms;
+  
 }
 
 .weathericon {
@@ -147,7 +138,7 @@
 hr.hrr{
   width: 90%;
   translate: 5%;
-  border: 1.5px solid white;
+  border: 1.4px solid white;
   border-radius: 5px;
 }
 
@@ -209,29 +200,29 @@ hr.hrr{
     }
 
     .bottom-content h3{
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .DateTemp{
-      height: 100px;
+      height:max-content;
       display: flex;
       flex-direction: column;
     }
 
     .DateTemp h2{
-      font-size: 30px;
-      padding-bottom: 7.5px;
+      font-size: 28px;
+      padding-bottom: 3.3rem;
     }
 
     .DateTemp h1{
       font-size: 38px;
       position: absolute;
-      left: 0;
+      left: -2px;
     }
 
     .DateTemp img {
       position: absolute;
-      left: 0;
+      left: -10px;
       
     }
   
@@ -243,7 +234,9 @@ hr.hrr{
 
 }
 
+
 @media only screen and (max-width: 500px)  {
+
 
   .box{
   height: 100vh;
@@ -256,16 +249,17 @@ hr.hrr{
   }
 
   .left-box{
-  height: 80%;
+  height: 70%;
   width: 50%;
   }
 
   .right-box{
-    height: 80%;
+    height: 70%;
     width: 34%;
   }
 
   .bottom-content h3{
+    font-size: 30px;
     padding-left: 5px;
   }
 
@@ -273,19 +267,30 @@ hr.hrr{
     display: flex;
     flex-direction: column;
     padding-left: 5px;
-    height: 8rem;
     width: 100%;
     font-size: small;
   }
   
+  .DateTemp h2{
+    font-size: 16px;
+    padding-bottom: 3.6rem;
+  }
+
   .DateTemp h1{
-    padding-left: 5px;
+    position: absolute;
+    padding-left: 7px;
     font-size: xx-large;
-  
+    top: 1.7rem;
+  }
+
+  .DateTemp img {
+    position: absolute;
+    left: -5px;
+    
   }
 
   .wrapper input {
-    width: 7rem;
+    width: 8rem;
   }
 
   .list{
