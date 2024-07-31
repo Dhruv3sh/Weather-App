@@ -45,13 +45,13 @@ const dateBuilder = (d) => {
 function App() {
 
   const weatherBackgrounds = {
-    Thunderstorm: 'url(/images/thunderstorm.jpg)',
-    Rain: 'url(/images/Rain.webp)',
-    Snow: 'url(/images/snow.jpg)',
+    Thunderstorm: 'url(/images/thunder1.jpg)',
+    Rain: 'url(/images/rain1.jpg)',
+    Snow: 'url(/images/snow1.jpg)',
     Clear: 'url(/images/Clear.jpg)',
-    Clouds: 'url(/images/clouds.jpg)',
+    Clouds: 'url(/images/clouds1.jpg)',
     Mist: 'url(/images/mist.jpg)',
-    Haze: 'url(/images/haze.jpeg)',
+    Haze: 'url(/images/haze1.jpg)',
     Dust: 'url(/images/dust.jpg)',
     Fog: 'url(/images/fog.jpg)',
     Drizzle: 'url(/images/drizzle.webp)',
