@@ -14,11 +14,13 @@ const SearchBar = ({ onSearch }) => {
             event.preventDefault();
             setInputValue(event.target.value);
             onSearch(inputValue);
+            setInputValue('')
         }
     };
 
     const handleSearch = () => {
         onSearch(inputValue);
+        setInputValue('')
     };
 
     return (
