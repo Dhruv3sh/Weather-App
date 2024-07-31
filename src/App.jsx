@@ -223,19 +223,24 @@ function App() {
         <hr className='hrr' />
         <div><SearchBar onSearch={HandleShowSearch} /> </div>
         <div className='list'>
-          <ul>
+         <ul>
             {area &&
-              <li>Temperature  -  {Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</li>}
-            <hr />
-            {area &&
-              <li>Humidity  -  {area.main.humidity}%</li>}
-            <hr />
-            {area &&
-              <li>Visibility  -  {area.visibility}mi</li>}
+              <li className='Litemp'>Temperature <p>{Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</p>  </li>}
 
-            <hr />
+            <br />
+
             {area &&
-              <li>wind speed  -  {area.wind.speed}Km/h</li>}
+              <li className='Litemp'>Humidity   <p>{area.main.humidity}%</p> </li>}
+
+            <br />
+
+            {area &&
+              <li className='Litemp'>Visibility <p>{area.visibility}mi</p> </li>}
+
+            <br />
+
+            {area &&
+              <li className='Litemp1'>wind speed <p> {area.wind.speed}Km/h</p> </li>}
 
           </ul>
         </div>
