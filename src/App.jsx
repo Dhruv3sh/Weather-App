@@ -5,44 +5,44 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DefaultIcon from './components/DefaultIcon';
 
-const dateBuilder = (d) => {
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  let day = days[d.getDay()];
-  let date = d.getDate();
-  let month = months[d.getMonth()];
-  let year = d.getFullYear();
-
-  return `${day}, ${date} ${month} ${year}`;
-};
-
 
 
 
 
 function App() {
+
+  const dateBuilder = (d) => {
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+  
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+  
+    return `${day}, ${date} ${month} ${year}`;
+  };
 
   const weatherBackgrounds = {
     Thunderstorm: 'url(/images/thunderstorm.jpg)',
@@ -106,6 +106,52 @@ function App() {
   const [area, setArea] = useState('');
   const [backgroundImage, setBackgroundImage] = useState('')
   const [getIcon, setIcon] = useState('')
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+  
+          fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
+            .then((response) => response.json())
+            .then((data) => { setArea(data);
+  
+              // Set the background based on the weather condition
+              const weatherCondition = data.weather[0].main;
+              if (weatherBackgrounds[weatherCondition]) {
+                setBackgroundImage(weatherBackgrounds[weatherCondition]);
+              } else {
+                setBackgroundImage('url(/images/default.jpg)');
+              }
+  
+              // Set the weather icon
+              const handleSetIcons = Icons[weatherCondition];
+              if (handleSetIcons) {
+                setIcon(
+                  <DefaultIcon
+                    icon={handleSetIcons.icon}
+                    color={handleSetIcons.color}
+                    size={handleSetIcons.size}
+                    animate={handleSetIcons.animate}
+                  />
+                );
+              } else {
+                setIcon(<DefaultIcon />);
+              }
+            })
+            .catch((error) => {
+              console.error('Error fetching location-based weather:', error);
+            });
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+        },
+      );
+    }
+  }, []);
 
   const HandleShowSearch = (CityName) => {
     setCityName(CityName);
@@ -214,17 +260,17 @@ function App() {
         <div className='list'>
           <ul>
             {area &&
-              <li>Temperature  -  {Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</li>}
+              <li className='temp'>Temp  -  {Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</li>}
             <hr />
             {area &&
-              <li>Humidity  -  {area.main.humidity}%</li>}
+              <li className='temp'>Humidity  -  {area.main.humidity}%</li>}
             <hr />
             {area &&
-              <li>Visibility  -  {area.visibility}mi</li>}
+              <li className='temp'>Visibility  -  {area.visibility} mi</li>}
 
             <hr />
             {area &&
-              <li>wind speed  -  {area.wind.speed}Km/h</li>}
+              <li className='temp'>Wind  -  {area.wind.speed} Km/h</li>}
 
           </ul>
         </div>

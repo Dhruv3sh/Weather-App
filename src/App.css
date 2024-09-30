@@ -167,6 +167,9 @@ hr.hrr{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.temp{
+  font-size:x-large;
+}
 
 @media screen and (max-width: 1440px){
   .wrapper input {
