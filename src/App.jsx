@@ -271,7 +271,7 @@ function App() {
         <div className='list'>
          <ul>
             {area &&
-              <li className='temp'>Temp  -  {Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</li>}
+              <li className='temp'>Temperature  -  {Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</li>}
             <hr />
             {area &&
               <li className='temp'>Humidity  -  {area.main.humidity}%</li>}
