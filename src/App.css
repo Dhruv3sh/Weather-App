@@ -168,7 +168,7 @@ hr.hrr{
 }
 
 .temp{
-  font-size:x-large;
+  font-size: 24px;
 }
 
 @media screen and (max-width: 1440px){
@@ -243,6 +243,10 @@ hr.hrr{
     height: 80%;
   }
 
+  .temp{
+    font-size: 20px;
+  }
+
 
 }
 
@@ -267,18 +271,18 @@ hr.hrr{
 
   .right-box{
     height: 70%;
-    width: 34%;
+    width: 40%;
   }
 
   .bottom-content h3{
-    font-size: 30px;
-    padding-left: 5px;
+    font-size: 24px;
+    padding-left: 1px;
   }
 
   .DateTemp{
     display: flex;
     flex-direction: column;
-    padding-left: 5px;
+    padding-left: 1px;
     width: 100%;
     font-size: small;
   }
@@ -290,9 +294,9 @@ hr.hrr{
 
   .DateTemp h1{
     position: absolute;
-    padding-left: 7px;
+    padding-left: 1px;
     font-size: xx-large;
-    top: 1.7rem;
+    top: 1.6rem;
   }
 
   .DateTemp img {
@@ -316,6 +320,10 @@ hr.hrr{
   .list ul{
     padding-left: 0;
     list-style-type: none;
+  }
+
+  .temp{
+    font-size: 14px;
   }
 
 
