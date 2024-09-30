@@ -278,7 +278,7 @@ function App() {
             <hr />
             {area &&
               <li className='temp'>Visibility  -  {area.visibility} mi</li>}
-
+            <hr />  
             {area &&
               <li className='temp'>Wind  -  {area.wind.speed} Km/h</li>}
 
