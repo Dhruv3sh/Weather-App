@@ -1,2 +1,2 @@
 # weather-app
- This project is creted using ReactJs.
+ This project is created using ReactJs.

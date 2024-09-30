@@ -45,15 +45,16 @@ function App() {
   };
 
   const weatherBackgrounds = {
-    Thunderstorm: 'url(/images/thunderstorm.jpg)',
-    Rain: 'url(/images/Rain.webp)',
-    Snow: 'url(/images/snow.jpg)',
+    Thunderstorm: 'url(/images/thunder1.jpg)',
+    Rain: 'url(/images/rain1.jpg)',
+    Snow: 'url(/images/snow1.jpg)',
     Clear: 'url(/images/Clear.jpg)',
-    Clouds: 'url(/images/clouds.jpg)',
+    Clouds: 'url(/images/clouds1.jpg)',
     Mist: 'url(/images/mist.jpg)',
-    Haze: 'url(/images/haze.jpeg)',
+    Haze: 'url(/images/haze1.jpg)',
     Dust: 'url(/images/dust.jpg)',
     Fog: 'url(/images/fog.jpg)',
+    Drizzle: 'url(/images/drizzle.webp)',
   };
 
   const Icons = {
@@ -95,6 +96,12 @@ function App() {
     },
     Haze: {
       icon: 'FOG',
+      color: 'white',
+      size: 70,
+      animate: true
+    },
+    Drizzle: {
+      icon: 'SLEET',
       color: 'white',
       size: 70,
       animate: true
@@ -159,14 +166,13 @@ function App() {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=${apiKey}`;
     axios.get(apiUrl)
       .then((res) => {
-        console.log(res);
         setArea(res.data);
 
         const weatherCondition = res.data.weather[0].main;
         if (weatherBackgrounds[weatherCondition]) {
           setBackgroundImage(weatherBackgrounds[weatherCondition]);
         } else {
-          setBackgroundImage('url(/images/default.jpg)')
+          setBackgroundImage('url(/images/leftbox.jpeg)')
         }
 
         const handleSetIcons = Icons[weatherCondition];
@@ -188,6 +194,11 @@ function App() {
       })
       .catch((error) => {
         console.error('There was an error!', error);
+        if (error) {
+          alert("Enter correct area!!");
+        } else {
+          console.log(error);
+        }
       });
 
   };
@@ -258,7 +269,7 @@ function App() {
         <hr className='hrr' />
         <div><SearchBar onSearch={HandleShowSearch} /> </div>
         <div className='list'>
-          <ul>
+         <ul>
             {area &&
               <li className='temp'>Temp  -  {Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</li>}
             <hr />
@@ -268,7 +279,6 @@ function App() {
             {area &&
               <li className='temp'>Visibility  -  {area.visibility} mi</li>}
 
-            <hr />
             {area &&
               <li className='temp'>Wind  -  {area.wind.speed} Km/h</li>}
 
