@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import SearchBar from './components/SearchBar';
-import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import DefaultIcon from './components/DefaultIcon';
-
-
-
-
+import { useState, useEffect } from "react";
+import "./App.css";
+import SearchBar from "./components/SearchBar";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import DefaultIcon from "./components/DefaultIcon";
 
 function App() {
-
   const dateBuilder = (d) => {
     let months = [
       "Jan",
@@ -35,105 +30,107 @@ function App() {
       "Friday",
       "Saturday",
     ];
-  
+
     let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
-  
+
     return `${day}, ${date} ${month} ${year}`;
   };
 
   const weatherBackgrounds = {
-    Thunderstorm: 'url(/images/thunder1.jpg)',
-    Rain: 'url(/images/rain1.jpg)',
-    Snow: 'url(/images/snow1.jpg)',
-    Clear: 'url(/images/Clear.jpg)',
-    Clouds: 'url(/images/clouds1.jpg)',
-    Mist: 'url(/images/mist.jpg)',
-    Haze: 'url(/images/haze1.jpg)',
-    Dust: 'url(/images/dust.jpg)',
-    Fog: 'url(/images/fog.jpg)',
-    Drizzle: 'url(/images/drizzle.webp)',
+    Thunderstorm: "url(/images/thunder1.jpg)",
+    Rain: "url(/images/rain1.jpg)",
+    Snow: "url(/images/snow1.jpg)",
+    Clear: "url(/images/Clear.jpg)",
+    Clouds: "url(/images/clouds1.jpg)",
+    Mist: "url(/images/mist.jpg)",
+    Haze: "url(/images/haze1.jpg)",
+    Dust: "url(/images/dust.jpg)",
+    Fog: "url(/images/fog.jpg)",
+    Drizzle: "url(/images/drizzle.webp)",
   };
 
   const Icons = {
     Clear: {
-      icon: 'CLEAR_DAY',
-      color: 'white',
+      icon: "CLEAR_DAY",
+      color: "white",
       size: 70,
-      animate: true
+      animate: true,
     },
     Rain: {
-      icon: 'RAIN',
-      color: 'white',
+      icon: "RAIN",
+      color: "white",
       size: 70,
-      animate: true
+      animate: true,
     },
     Snow: {
-      icon: 'SNOW',
-      color: 'white',
+      icon: "SNOW",
+      color: "white",
       size: 70,
-      animate: true
+      animate: true,
     },
     Clouds: {
-      icon: 'CLOUDY',
-      color: 'white',
+      icon: "CLOUDY",
+      color: "white",
       size: 70,
-      animate: true
+      animate: true,
     },
     Mist: {
-      icon: 'WIND',
-      color: 'white',
+      icon: "WIND",
+      color: "white",
       size: 70,
-      animate: true
+      animate: true,
     },
     Fog: {
-      icon: 'FOG',
-      color: 'white',
+      icon: "FOG",
+      color: "white",
       size: 70,
-      animate: true
+      animate: true,
     },
     Haze: {
-      icon: 'FOG',
-      color: 'white',
+      icon: "FOG",
+      color: "white",
       size: 70,
-      animate: true
+      animate: true,
     },
     Drizzle: {
-      icon: 'SLEET',
-      color: 'white',
+      icon: "SLEET",
+      color: "white",
       size: 70,
-      animate: true
-    }
+      animate: true,
+    },
   };
 
-  const apiKey = 'eaa9e04667afed90bd02d16d06aac488';
-  const [cityName, setCityName] = useState('');
-  const [area, setArea] = useState('');
-  const [backgroundImage, setBackgroundImage] = useState('')
-  const [getIcon, setIcon] = useState('')
+  const apiKey = "eaa9e04667afed90bd02d16d06aac488";
+  const [cityName, setCityName] = useState("");
+  const [area, setArea] = useState("");
+  const [backgroundImage, setBackgroundImage] = useState("");
+  const [getIcon, setIcon] = useState("");
 
   useEffect(() => {
     if (navigator.geolocation) {
-
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
-  
-          fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
+
+          fetch(
+            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
+          )
             .then((response) => response.json())
-            .then((data) => { setArea(data);
-  
+            .then((data) => {
+              setArea(data);
+
               // Set the background based on the weather condition
               const weatherCondition = data.weather[0].main;
               if (weatherBackgrounds[weatherCondition]) {
                 setBackgroundImage(weatherBackgrounds[weatherCondition]);
               } else {
-                setBackgroundImage('url(/images/default.jpg)');
+                setBackgroundImage("url(/images/default.jpg)");
               }
-  
+
               // Set the weather icon
               const handleSetIcons = Icons[weatherCondition];
               if (handleSetIcons) {
@@ -150,12 +147,12 @@ function App() {
               }
             })
             .catch((error) => {
-              console.error('Error fetching location-based weather:', error);
+              console.error("Error fetching location-based weather:", error);
             });
         },
         (error) => {
-          console.error('Error getting location:', error);
-        },
+          console.error("Error getting location:", error);
+        }
       );
     }
   }, []);
@@ -164,7 +161,8 @@ function App() {
     setCityName(CityName);
 
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=${apiKey}`;
-    axios.get(apiUrl)
+    axios
+      .get(apiUrl)
       .then((res) => {
         setArea(res.data);
 
@@ -172,7 +170,7 @@ function App() {
         if (weatherBackgrounds[weatherCondition]) {
           setBackgroundImage(weatherBackgrounds[weatherCondition]);
         } else {
-          setBackgroundImage('url(/images/leftbox.jpeg)')
+          setBackgroundImage("url(/images/leftbox.jpeg)");
         }
 
         const handleSetIcons = Icons[weatherCondition];
@@ -186,34 +184,30 @@ function App() {
             />
           );
         } else {
-          setIcon(
-            <DefaultIcon />
-          );
+          setIcon(<DefaultIcon />);
         }
-
       })
       .catch((error) => {
-        console.error('There was an error!', error);
+        console.error("There was an error!", error);
         if (error) {
           alert("Enter correct area!!");
         } else {
           console.log(error);
         }
       });
-
   };
 
   useEffect(() => {
     if (backgroundImage) {
       document.body.style.backgroundImage = backgroundImage;
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundRepeat = 'no-repeat';
-      document.body.style.backgroundPosition = 'center center';
-      document.body.style.height = '100vh';
-      document.body.style.width = '100vw';
-      document.body.style.margin = '0';
-      document.body.style.padding = '0';
-      document.body.style.overflow = 'hidden';
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundPosition = "center center";
+      document.body.style.height = "100vh";
+      document.body.style.width = "100vw";
+      document.body.style.margin = "0";
+      document.body.style.padding = "0";
+      document.body.style.overflow = "hidden";
     }
   }, [backgroundImage]);
 
@@ -228,12 +222,18 @@ function App() {
     };
   }, []);
 
-
-
   return (
-    <div className='box'>
-      <div className='left-box' style={{ backgroundImage: backgroundImage, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center' }}>
-        <div className='location'>
+    <div className="box">
+      <div
+        className="left-box"
+        style={{
+          backgroundImage: backgroundImage,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+        }}
+      >
+        <div className="location">
           {area ? (
             <h1>{area.name}</h1>
           ) : (
@@ -241,47 +241,48 @@ function App() {
               <span className="visually-hidden">Loading...</span>
             </div>
           )}
-          {area && area.sys && (
-            <h1>{area.sys.country}</h1>
-          )}
+          {area && area.sys && <h1>{area.sys.country}</h1>}
         </div>
 
-
-        <div className='bottom-content'>
-          <div><h3>{time.toLocaleTimeString()}</h3></div>
-          <div className='DateTemp'>
+        <div className="bottom-content">
+          <div>
+            <h3>{time.toLocaleTimeString([], { hour12: false })}</h3>
+          </div>
+          <div className="DateTemp">
             <h2>{dateBuilder(new Date())}</h2>
             {area ? (
-              <h1>{Math.round(area.main.temp - 273.15)}°C</h1> // Convert Kelvin to Celsius
+              <h1>{Math.round(area.main.temp - 273.15)}°c</h1> // Convert Kelvin to Celsius
             ) : (
-              <img src='/images/WeatherIcons.gif' />
+              <img src="/images/WeatherIcons.gif" />
             )}
           </div>
         </div>
       </div>
-      <div className='right-box'>
-        <div className='weathericon'>
+      <div className="right-box">
+        <div className="weathericon">
           {area ? getIcon : <DefaultIcon />}
-          {area && area.weather && (
-            <h1>{area.weather[0].main}</h1>
-          )}
+          {area && area.weather && <h1>{area.weather[0].main}</h1>}
         </div>
-        <hr className='hrr' />
-        <div><SearchBar onSearch={HandleShowSearch} /> </div>
-        <div className='list'>
-         <ul>
-            {area &&
-              <li className='temp'>Temperature  -  {Math.round(area.main.temp - 273.15)}°C ({area.weather[0].main})</li>}
+        <hr className="hrr" />
+        <div>
+          <SearchBar onSearch={HandleShowSearch} />{" "}
+        </div>
+        <div className="list">
+          <ul>
+            {area && (
+              <li className="temp">
+                Temp - {Math.round(area.main.temp - 273.15)}°C (
+                {area.weather[0].main})
+              </li>
+            )}
             <hr />
-            {area &&
-              <li className='temp'>Humidity  -  {area.main.humidity}%</li>}
+            {area && <li className="temp">Humidity - {area.main.humidity}%</li>}
             <hr />
-            {area &&
-              <li className='temp'>Visibility  -  {area.visibility} mi</li>}
-            <hr />  
-            {area &&
-              <li className='temp'>Wind  -  {area.wind.speed} Km/h</li>}
-
+            {area && (
+              <li className="temp">Visibility - {area.visibility} mi</li>
+            )}
+            <hr />
+            {area && <li className="temp">Wind - {area.wind.speed} Km/h</li>}
           </ul>
         </div>
       </div>
@@ -290,4 +291,3 @@ function App() {
 }
 
 export default App;
-

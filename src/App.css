@@ -38,7 +38,8 @@
 }
 
 .bottom-content h3{
-  font-size: 2.2rem;
+  font-size: 2.4rem;
+  margin-bottom: 0;
 }
 
 .DateTemp{
@@ -51,14 +52,14 @@
 
 .DateTemp h2{
   font-size: 20px;
-  padding-bottom: 14px;
+  padding-bottom: 8px;
 }
 
 .DateTemp h1{
   position: absolute;
   left: 15rem;
   bottom: 0px;
-  font-size: 4.5rem;
+  font-size: 5rem;
 
 }
 
@@ -94,7 +95,7 @@
 
 .wrapper input {
   background-color: transparent;
-  padding-right: 40px;
+  padding-right: 35px;
   border: none;
   border-bottom: 1px solid silver;
 }
@@ -150,6 +151,7 @@ hr.hrr{
 }
 
 .list ul{
+  width: 100%;
   list-style-type: none;
 }
 
@@ -168,7 +170,7 @@ hr.hrr{
 }
 
 .temp{
-  font-size: 24px;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 1440px){
@@ -212,24 +214,24 @@ hr.hrr{
     }
 
     .bottom-content h3{
-      font-size: 22px;
+      font-size: 35px;
+      margin-bottom: 4px;
     }
 
     .DateTemp{
-      height:max-content;
+      height:auto;
       display: flex;
       flex-direction: column;
     }
 
     .DateTemp h2{
-      font-size: 28px;
-      padding-bottom: 3.3rem;
+      font-size: 20px;
     }
 
     .DateTemp h1{
-      font-size: 38px;
+      font-size: 50px;
       position: absolute;
-      left: -2px;
+      left: 13rem;
     }
 
     .DateTemp img {
@@ -244,7 +246,7 @@ hr.hrr{
   }
 
   .temp{
-    font-size: 20px;
+    font-size: 14px;
   }
 
 
@@ -295,6 +297,7 @@ hr.hrr{
   .DateTemp h1{
     position: absolute;
     padding-left: 1px;
+    left: 0;
     font-size: xx-large;
     top: 1.6rem;
   }
