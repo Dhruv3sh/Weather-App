@@ -245,7 +245,7 @@ function App() {
         </div>
 
         <div className="bottom-content">
-          <div>
+          <div className="timediv">
             <h3>{time.toLocaleTimeString([], { hour12: false })}</h3>
           </div>
           <div className="DateTemp">
@@ -264,7 +264,7 @@ function App() {
           {area && area.weather && <h1>{area.weather[0].main}</h1>}
         </div>
         <hr className="hrr" />
-        <div>
+        <div className="searchdiv">
           <SearchBar onSearch={HandleShowSearch} />{" "}
         </div>
         <div className="list">
